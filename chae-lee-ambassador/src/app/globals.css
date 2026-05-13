@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-dm-sans: "DM Sans", system-ui, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fdf8f5;
+  color: #1c0a14;
+  font-family: var(--font-dm-sans);
+  overscroll-behavior: none;
+}
+
+/* Dot grid texture overlay */
+.dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(196, 134, 155, 0.12) 1px,
+    transparent 0
+  );
+  background-size: 28px 28px;
+}
+
+/* Luxury shimmer button */
+.btn-shimmer {
+  background: linear-gradient(
+    90deg,
+    #c4869b 0%,
+    #a06880 25%,
+    #c4869b 50%,
+    #d4a0b5 75%,
+    #c4869b 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Input focus ring */
+.input-luxury {
+  @apply w-full rounded-2xl bg-white border border-kb-rose px-5 py-4 text-kb-deep font-body text-base
+    focus:outline-none focus:border-kb-blush focus:ring-2 focus:ring-kb-blush/20
+    placeholder:text-kb-muted/50 transition-all duration-200;
+}
+
+.input-luxury.error {
+  @apply border-red-300 focus:border-red-400 focus:ring-red-300/20;
+}
+
+/* Option card button */
+.option-card {
+  @apply w-full text-left px-5 py-4 rounded-2xl border transition-all duration-200
+    font-body text-[15px] leading-snug;
+}
+
+.option-card.unselected {
+  @apply bg-white text-kb-deep border-kb-rose hover:border-kb-blush hover:bg-kb-petal/40;
+}
+
+.option-card.selected {
+  @apply bg-kb-blush text-white border-kb-blush shadow-blush-glow;
+}
+
+/* Progress bar */
+.progress-fill {
+  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
